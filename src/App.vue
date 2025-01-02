@@ -22,26 +22,25 @@ function onWheel(event: WheelEvent) {
   } else {
     selectedIndex.value = Math.max(selectedIndex.value - 1, 0);
   }
-  console.log(selectedIndex.value);
-  console.log(scrollContainer.value?.clientHeight);
+  scrollto(selectedIndex.value);
+}
+
+function scrollto(index: number) {
+  selectedIndex.value = index;
   window.scrollTo({
-    top: scrollContainer.value?.clientHeight!/3 * selectedIndex.value,
+    top: scrollContainer.value?.clientHeight!/3 * index,
     behavior: 'smooth'
   });
 }
 
-onMounted(() => {
-  console.log(scrollContainer.value);
-});
-
 </script>
 
 <template>
-  <PageIndicateur class="fixed right-0 inset-y-0" :projects="projects"/>
+  <PageIndicateur class="fixed right-0 inset-y-0" :projects="projects" :selected-index="selectedIndex" :scroll-to="scrollto"/>
   <div class="bg-cyan-50 w-full flex flex-col justify-center items-center overflow-auto no-scrollbar snap-both snap-mandatory" ref="scrollContainer" @wheel="onWheel">
-    <div class="h-screen w-full bg-black snap-center"></div>
+    <div class="h-screen w-full bg-cyan-100 snap-center"></div>
     <div class="h-screen w-full bg-red-300 snap-center"></div>
-    <div class="h-screen w-full bg-black snap-center"></div>
+    <div class="h-screen w-full bg-orange-500 snap-center"></div>
   </div>
 </template>
 
