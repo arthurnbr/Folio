@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
+import LandingPage from './views/LandingPage.vue';
 import PageIndicateur from './components/PageIndicateur.vue';
 
 const selectedIndex = ref(0);
-const projects = [{title: "Mowg'Lille", icon : "mdi-car"},{title: "BDE", icon : "mdi-car"},{title: "SALUT", icon : "mdi-car"}];
+const projects = [{title: "Mowg'Lille", icon : "react"},{title: "BDE", icon : "react"},{title: "SALUT", icon : "react"}];
 const scrollContainer = ref<HTMLElement | null>(null);
 const isScrolling = ref(false);
 const scrollCooldown = 150;
@@ -36,10 +37,12 @@ function scrollto(index: number) {
 </script>
 
 <template>
-  <PageIndicateur class="fixed right-0 inset-y-0" :projects="projects" :selected-index="selectedIndex" :scroll-to="scrollto"/>
+  <PageIndicateur class="fixed right-0 inset-y-0 z-30" :projects="projects" :selected-index="selectedIndex" :scroll-to="scrollto"/>
   <div class="bg-cyan-50 w-full flex flex-col justify-center items-center overflow-auto no-scrollbar snap-both snap-mandatory" ref="scrollContainer" @wheel="onWheel">
+    <Suspense>
+      <LandingPage class="h-screen w-full"/>
+    </Suspense>
     <div class="h-screen w-full bg-cyan-100 snap-center"></div>
-    <div class="h-screen w-full bg-red-300 snap-center"></div>
     <div class="h-screen w-full bg-orange-500 snap-center"></div>
   </div>
 </template>

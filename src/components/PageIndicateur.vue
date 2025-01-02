@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 
 interface Project {
   title: string;
+  icon: string;
 }
 
 const {projects, selectedIndex, scrollTo} = defineProps<{ projects: Project[], selectedIndex: number, scrollTo: Function}>();
@@ -36,7 +37,7 @@ const isHovered = ref(false)
       }"
       @click="scrollTo(index)"
     >
-        <mdicon name="react" class="h-[24px] w-[24px]"/> 
+        <mdicon :name="project.icon" class="h-[24px] w-[24px]"/> 
         <p class="font-bold">{{project.title}}</p>
       </div>
     </div>
