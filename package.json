@@ -10,14 +10,21 @@
   },
   "dependencies": {
     "@mdi/js": "^7.4.47",
+    "@tresjs/cientos": "^4.0.3",
+    "@tresjs/core": "^4.3.1",
+    "@tresjs/post-processing": "^1.0.0",
+    "@vueuse/core": "^12.3.0",
     "mdi-vue": "^3.0.13",
+    "three": "^0.172.0",
     "vue": "^3.5.13"
   },
   "devDependencies": {
+    "@types/three": "^0.171.0",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/tsconfig": "^0.7.0",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
+    "prettier": "3.4.2",
     "tailwindcss": "^3.4.17",
     "typescript": "~5.6.2",
     "vite": "^6.0.5",

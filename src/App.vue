@@ -1,9 +1,17 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
+import LandingPage from './views/LandingPage.vue';
 import PageIndicateur from './components/PageIndicateur.vue';
+import MowgLille from './views/MowgLille.vue';
+import HomeePage from './views/HomeePage.vue';
+import BdePage from './views/BdePage.vue';
+import Dorobo from './views/Dorobo.vue';
+import ContactPage from './views/ContactPage.vue';
+import { useMediaQuery } from '@vueuse/core'
 
+const isXLScreen = useMediaQuery('(min-width: 1536px)');
+const projects = [{title: "Mowg'Lille", icon : "react"},{title: "BDE", icon : "react"},{title: "SALUT", icon : "react"},{title: "SALUT", icon : "react"},{title: "SALUT", icon : "react"},{title: "SALUT", icon : "react"}];
 const selectedIndex = ref(0);
-const projects = [{title: "Mowg'Lille", icon : "mdi-car"},{title: "BDE", icon : "mdi-car"},{title: "SALUT", icon : "mdi-car"}];
 const scrollContainer = ref<HTMLElement | null>(null);
 const isScrolling = ref(false);
 const scrollCooldown = 150;
@@ -28,36 +36,24 @@ function onWheel(event: WheelEvent) {
 function scrollto(index: number) {
   selectedIndex.value = index;
   window.scrollTo({
-    top: scrollContainer.value?.clientHeight!/3 * index,
+    top: scrollContainer.value?.clientHeight!/projects.length * index,
     behavior: 'smooth'
   });
 }
-
 </script>
 
 <template>
-  <PageIndicateur class="fixed right-0 inset-y-0" :projects="projects" :selected-index="selectedIndex" :scroll-to="scrollto"/>
+  <PageIndicateur class="fixed right-0 inset-y-0 z-30" :projects="projects" :selected-index="selectedIndex" :scroll-to="scrollto" v-if="isXLScreen"/>
   <div class="bg-cyan-50 w-full flex flex-col justify-center items-center overflow-auto no-scrollbar snap-both snap-mandatory" ref="scrollContainer" @wheel="onWheel">
-    <div class="h-screen w-full bg-cyan-100 snap-center"></div>
-    <div class="h-screen w-full bg-red-300 snap-center"></div>
-    <div class="h-screen w-full bg-orange-500 snap-center"></div>
+    <LandingPage class="h-screen w-full" :scrollto="scrollto"/>
+    <MowgLille class="h-screen w-full bg-[#FFE860] snap-center"/>
+    <HomeePage class="h-screen w-full bg-[#674B41] snap-center"/>
+    <BdePage class="h-screen w-full bg-[#FFA07A] snap-center"/>
+    <Dorobo class="h-screen w-full bg-[#2F2718] snap-center"/>
+    <ContactPage class="h-screen w-full"/>
   </div>
+  salut
 </template>
 
 <style scoped>
-
-
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
 </style>
