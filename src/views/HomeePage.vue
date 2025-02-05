@@ -11,6 +11,8 @@ const gl = {
   outputColorSpace: SRGBColorSpace,
   toneMapping: NoToneMapping,
 }
+
+
 </script>
 
 <template>
@@ -54,16 +56,12 @@ const gl = {
           <p class="text-[##F1DABF] opacity-80 font-bold">Le code de l'application n'est pas public pour le moment</p>
         </div>
         <div class="flex gap-2 items-center">
-          <mdicon name="github" width="32" height="32" class="text-[##F1DABF] opacity-90"/>
-          <p class="text-[##F1DABF] opacity-80 font-bold">Consulter le Code de la partie électronique ici (Pas réalisé pas moi)</p>
+          <mdicon name="file-cog-outline" width="32" height="32" class="text-[##F1DABF] opacity-90"/>
+          <a class="text-[##F1DABF] opacity-80 font-bold" href="https://github.com/arthurnbr/Homee_PCB" target="_blank">Consulter les fichiers sources du circuit imprimé</a>
         </div>
         <div class="flex gap-2 items-center">
-          <mdicon name="github" width="32" height="32" class="text-[##F1DABF] opacity-90"/>
-          <p class="text-[##F1DABF] opacity-80 font-bold">Consulter les fichiers sources du circuit imprimé</p>
-        </div>
-        <div class="flex gap-2 items-center">
-          <mdicon name="github" width="32" height="32" class="text-[##F1DABF] opacity-90"/>
-          <p class="text-[##F1DABF] opacity-80 font-bold">Consulter la présentation</p>
+          <mdicon name="presentation" width="32" height="32" class="text-[##F1DABF] opacity-90"/>
+          <a class="text-[##F1DABF] opacity-80 font-bold" href="https://docs.google.com/presentation/d/1_nJmo15v_vvQzgPV1KhJIBmmEXdrgDLtM3ZvsGRGKqA/edit?usp=sharing" target="_blank">Consulter la présentation</a>
         </div>
       </div>
     </div>

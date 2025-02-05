@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import { useGLTF } from '@tresjs/cientos'
+import { useGLTF } from "@tresjs/cientos";
 
-
-const { scene, nodes, animations, materials } = await useGLTF('/models/dorobo.glb')
-
+const { scene } = await useGLTF("/models/CP.glb");
 </script>
 
 <template>
-    <TresMesh>
-        <primitive :object="scene"/>
-    </TresMesh>
+  <TresMesh>
+    <primitive :object="scene" />
+  </TresMesh>
 </template>

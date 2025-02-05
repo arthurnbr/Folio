@@ -11,6 +11,7 @@ const gl = {
   outputColorSpace: SRGBColorSpace,
   toneMapping: NoToneMapping,
 }
+
 </script>
 
 <template>
@@ -68,7 +69,7 @@ const gl = {
       <div class="w-20 h-1 bg-black opacity-80"></div>
       <div class="flex gap-2 items-center">
         <mdicon name="github" width="32" height="32" class="text-black opacity-90"/>
-        <p class="text-black opacity-80 font-bold">Consulter le code</p>
+        <a class="text-black opacity-80 font-bold" href="https://github.com/stanig2106/mowglille-campagne" target="_blank">Consulter le code</a>
       </div>
     </div>
   </div>

@@ -4,6 +4,7 @@ import { BasicShadowMap, SRGBColorSpace, NoToneMapping } from 'three'
 import { Levioso } from '@tresjs/cientos';
 import Dorobo from '../models/Dorobo.vue';
 
+
 const gl = {
   shadows: true,
   alpha: true,
@@ -12,14 +13,13 @@ const gl = {
   toneMapping: NoToneMapping,
 }
 
-
 </script>
 
 <template>
   <div class="h-screen w-full flex justify-center items-center">
     <div class="2xl:w-full w-3/5 h-full flex flex-col gap-2 2xl:p-16 p-4 justify-center">
       <div class="flex items-center gap-6">
-        <h1 class="text-8xl text-[##F1DABF] opacity-90">Homee</h1>
+        <h1 class="text-8xl text-[##F1DABF] opacity-90">Campus Privée</h1>
         <!-- <div class="flex flex-col justify-center items-center p-4 bg-black bg-opacity-10 rounded-2xl">
           <h2 class="text-5xl text-[##F1DABF] font-black opacity-90">999</h2>
           <p class="text-[##F1DABF] text-xl font-medium opacity-80">Stat à Mettre</p>
@@ -38,36 +38,18 @@ const gl = {
         
       </div>
       <p class="text-[##F1DABF] opacity-80 font-medium">
-        Homee est un projet de domotique conçu pour offrir une solution accessible, flexible et performante face aux limites des systèmes traditionnels. En s'appuyant sur un réseau mesh, Homee élimine les contraintes de portée des réseaux classiques tout en réduisant les coûts d'installation. Pensé pour être "Plug and Play", le système permet une mise en œuvre simplifiée et évolutive, sans nécessiter de travaux lourds. Il intègre également une application mobile intuitive pour contrôler un grand nombre d'appareils, avec des mises à jour à distance pour garantir sa pérennité.
+        Campus Privée est un Centre de Formation d’Apprentis (CFA) présent sur 16 campus à travers la France. Dans le cadre d'une mission freelance, j’ai collaboré avec Campus Privée pour développer un ERP dédié à l’optimisation de la gestion des contrats, transformant ainsi des processus administratifs complexes en une solution fluide et intuitive.
       </p>
       <p class="text-[##F1DABF] opacity-80 font-medium">
-        Sur le plan technique, j’ai réalisé l’application mobile de bout en bout, du design à la mise en œuvre, en utilisant une PWA développée avec Vue.js et Tailwind CSS. J’ai également conçu le circuit imprimé du produit à l’aide du logiciel de CAO électronique KiCad.
+        Au cœur de ce projet, ma mission a consisté à analyser les besoins du client, à concevoir une expérience utilisateur ergonomique et à élaborer une interface graphique à la fois moderne et fonctionnelle. L’objectif était de traduire les attentes spécifiques du CFA en un outil performant et évolutif, capable de s’adapter aux exigences d’un environnement de formation dynamique.
       </p>
       <p class="text-[##F1DABF] opacity-80 font-medium">
         Le projet a été réalisé dans le cadre d’un travail à l’École Centrale de Lille et présenté aux professeurs.
       </p>
       <p class="text-[##F1DABF] opacity-80 font-medium">
-        Cependant, aucun plan de déploiement n’est prévu à ce jour.
+        Cette approche a permis de créer une plateforme intégrée, simplifiant la gestion quotidienne des contrats tout en favorisant une meilleure organisation et une plus grande réactivité des équipes administratives.
       </p>
       <div class="w-20 h-1 bg-[#F1DABF] opacity-80"></div>
-      <div class="flex gap-2 flex-col">
-        <div class="flex gap-2 items-center">
-          <mdicon name="github" width="32" height="32" class="text-[##F1DABF] opacity-90"/>
-          <p class="text-[##F1DABF] opacity-80 font-bold">Le code de l'application n'est pas public pour le moment</p>
-        </div>
-        <div class="flex gap-2 items-center">
-          <mdicon name="github" width="32" height="32" class="text-[##F1DABF] opacity-90"/>
-          <p class="text-[##F1DABF] opacity-80 font-bold">Consulter le Code de la partie électronique ici (Pas réalisé pas moi)</p>
-        </div>
-        <div class="flex gap-2 items-center">
-          <mdicon name="github" width="32" height="32" class="text-[##F1DABF] opacity-90"/>
-          <p class="text-[##F1DABF] opacity-80 font-bold">Consulter les fichiers sources du circuit imprimé</p>
-        </div>
-        <div class="flex gap-2 items-center">
-          <mdicon name="github" width="32" height="32" class="text-[##F1DABF] opacity-90"/>
-          <p class="text-[##F1DABF] opacity-80 font-bold">Consulter la présentation</p>
-        </div>
-      </div>
     </div>
     <div class="h-full w-1/2">
       <TresCanvas v-bind="gl">
@@ -81,10 +63,10 @@ const gl = {
           :look-at="[0, 0, 0]"
         />
         <TresDirectionalLight
-          color="#F78B3D"
+          color="#FFFFFF"
           cast-shadow
           :position="[3, 3, 3]"
-          :intensity="10"
+          :intensity="2"
         />
         <TresAmbientLight :intensity="1" />
       </TresCanvas>

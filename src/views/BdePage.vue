@@ -11,6 +11,7 @@ const gl = {
   outputColorSpace: SRGBColorSpace,
   toneMapping: NoToneMapping,
 }
+
 </script>
 
 <template>
@@ -51,18 +52,15 @@ const gl = {
         
       </div>
       <p class="text-black opacity-80 font-medium">
-        <b>Mowg'Lille</b> est une application développée dans le cadre de la campagne BDE, visant à simplifier la gestion des événements étudiants tout en favorisant l'engagement collectif. Elle offre une identification rapide grâce à un <b>QR code</b>, un accès centralisé aux <b>informations sur les activités à venir</b>, ainsi qu’un <b>système de classements</b> pour animer les concours. Par ailleurs, l’application propose des <b>défis</b>, des <b>jeux</b> et des <b>collectibles</b> pour renforcer la participation, tout en intégrant des outils de communication adaptés aux besoins des utilisateurs.
+        Durant mon cursus à Centrale Lille, j’ai eu l’opportunité d’assumer le rôle de responsable de l’image du Bureau des Étudiants (BDE). Chargé de promouvoir l’identité visuelle et les activités du BDE auprès de la communauté étudiante, j’ai conçu et réalisé divers supports de communication en m’appuyant sur des outils tels que Photoshop, Blender et Illustrator. Ce travail m’a permis de créer, entre autres, des affiches, des bannières et même le design du pull de promo, garantissant ainsi une cohérence graphique et un fort impact visuel.
       </p>
       <p class="text-black opacity-80 font-medium">
-        Au niveau technique, l'application est développée avec un Front en <b>Vue/Tailwind CSS</b> et un Back en <b>Ruby on Rails</b> en implémentant des technologies <b>PWA (Progressive Web App)</b>. Je n'ai pas participé au dévlopement mais j'ai crée l'intégralité des mockups sur <b>Figma</b> ainsi que tous les assets sur <b>Blender</b> ou <b>Photoshop</b>.
-      </p>
-      <p class="text-black opacity-80 font-medium">
-        L'application a été déploiyée sur le <b>Play Store</b> et l'<b>App Store</b> mais elle n'est pas disponible au public car elle avait pour but de durée une semaine pour la campagne BDE. Vous pouvez cependant consulter le code source en <b>cliquant ici</b>
+        Par ailleurs, j’ai piloté la réalisation de la plaquette institutionnelle de Centrale, élaborée exclusivement sous InDesign et destinée à illustrer la vie associative aux étudiants de classes préparatoires. Ce projet, mené de bout en bout, a exigé un important travail de recherche, d’organisation et de créativité, afin de transmettre avec précision et dynamisme l’esprit et les valeurs de notre école.
       </p>
       <div class="w-20 h-1 bg-black opacity-80"></div>
       <div class="flex gap-2 items-center">
-        <mdicon name="github" width="32" height="32" class="text-black opacity-90"/>
-        <p class="text-black opacity-80 font-bold">Consulter la plaquette de Centrale Lille</p>
+        <mdicon name="book-open-blank-variant-outline" width="32" height="32" class="text-black opacity-90"/>
+        <a class="text-black opacity-80 font-bold" href="https://ecole.centralelille.fr/wp-content/uploads/sites/33/plaquette_alpha_centale-lille_2024-2025.pdf" target="_blank">Consulter la plaquette de Centrale Lille</a>
       </div>
     </div>
   </div>

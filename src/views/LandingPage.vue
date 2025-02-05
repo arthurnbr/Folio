@@ -7,7 +7,7 @@ import { Suspense } from 'vue';
 import { BlendFunction } from 'postprocessing'
 import Test from '../models/Test.vue';
 
-const { scrollto } = defineProps<{ scrollto: Function }>();
+
 
 const gl = {
   clearColor: '#2c0e36',
@@ -39,7 +39,7 @@ const gl = {
         <div class="flex-grow flex items-center justify-center p-2.5 bg-black bg-opacity-50 rounded-xl cursor-pointer" @click="scrollto(1)">
           <h2 class="text-white text-2xl font-bold">Découvrir mon travail</h2>
         </div>
-        <div class="flex-grow flex items-center justify-center p-2.5 cursor-pointer" @click="$router.push('/cv')">
+        <div class="flex-grow flex items-center justify-center p-2.5 cursor-pointer">
           <h2 class="text-white text-2xl font-semibold">Voir mon CV</h2>
         </div>
       </div>

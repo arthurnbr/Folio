@@ -16,7 +16,8 @@
     "@vueuse/core": "^12.3.0",
     "mdi-vue": "^3.0.13",
     "three": "^0.172.0",
-    "vue": "^3.5.13"
+    "vue": "^3.5.13",
+    "vue-scroll-snap": "^0.1.11"
   },
   "devDependencies": {
     "@types/three": "^0.171.0",

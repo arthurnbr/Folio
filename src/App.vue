@@ -1,59 +1,65 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import LandingPage from './views/LandingPage.vue';
-import PageIndicateur from './components/PageIndicateur.vue';
-import MowgLille from './views/MowgLille.vue';
-import HomeePage from './views/HomeePage.vue';
-import BdePage from './views/BdePage.vue';
-import Dorobo from './views/Dorobo.vue';
-import ContactPage from './views/ContactPage.vue';
-import { useMediaQuery } from '@vueuse/core'
+import { computed, ref, watch } from "vue";
+import LandingPage from "./views/LandingPage.vue";
+import PageIndicateur from "./components/PageIndicateur.vue";
+import MowgLille from "./views/MowgLille.vue";
+import HomeePage from "./views/HomeePage.vue";
+import BdePage from "./views/BdePage.vue";
+import Dorobo from "./views/Dorobo.vue";
+import ContactPage from "./views/ContactPage.vue";
+import { useMediaQuery, useWindowScroll } from "@vueuse/core";
 
-const isXLScreen = useMediaQuery('(min-width: 1536px)');
-const projects = [{title: "Mowg'Lille", icon : "react"},{title: "BDE", icon : "react"},{title: "SALUT", icon : "react"},{title: "SALUT", icon : "react"},{title: "SALUT", icon : "react"},{title: "SALUT", icon : "react"}];
-const selectedIndex = ref(0);
-const scrollContainer = ref<HTMLElement | null>(null);
-const isScrolling = ref(false);
-const scrollCooldown = 150;
+const isXLScreen = useMediaQuery("(min-width: 1536px)");
+const projects = [
+  { title: "Présentation", icon: "account" },
+  { title: "Mowg'Lille", icon: "teddy-bear" },
+  { title: "Homee", icon: "lightbulb-outline" },
+  { title: "BDE", icon: "party-popper" },
+  { title: "Campus Privée", icon: "human-male-board" },
+  // { title: "Contact", icon: "phone" },
+];
+const { isScrolling, directions } = useWindowScroll({idle: 300});
+const { y } = useWindowScroll({behavior: "smooth"});
+const lastDirection = ref("down");
+ 
+const selectedIndex = computed(() => (lastDirection.value === "up" ? Math.floor : Math.ceil)(y.value / window.innerHeight));
 
-function onWheel(event: WheelEvent) {
-  event.preventDefault();
+watch(isScrolling, () => {
+  if (directions.top) lastDirection.value = "up";
+  if (directions.bottom) lastDirection.value = "down";
   if (isScrolling.value) return;
-
-  isScrolling.value = true;
-  setTimeout(() => {
-    isScrolling.value = false;
-  }, scrollCooldown);
-
-  if (event.deltaY > 0) {
-    selectedIndex.value = Math.min(selectedIndex.value + 1, projects.length - 1);
-  } else {
-    selectedIndex.value = Math.max(selectedIndex.value - 1, 0);
-  }
   scrollto(selectedIndex.value);
+});
+
+function showable(index: number) {
+  return computed(() => selectedIndex.value === index || selectedIndex.value === index - 1 || selectedIndex.value === index + 1);
 }
 
 function scrollto(index: number) {
-  selectedIndex.value = index;
-  window.scrollTo({
-    top: scrollContainer.value?.clientHeight!/projects.length * index,
-    behavior: 'smooth'
-  });
+  y.value = index * window.innerHeight;
 }
 </script>
 
 <template>
-  <PageIndicateur class="fixed right-0 inset-y-0 z-30" :projects="projects" :selected-index="selectedIndex" :scroll-to="scrollto" v-if="isXLScreen"/>
-  <div class="bg-cyan-50 w-full flex flex-col justify-center items-center overflow-auto no-scrollbar snap-both snap-mandatory" ref="scrollContainer" @wheel="onWheel">
-    <LandingPage class="h-screen w-full" :scrollto="scrollto"/>
-    <MowgLille class="h-screen w-full bg-[#FFE860] snap-center"/>
-    <HomeePage class="h-screen w-full bg-[#674B41] snap-center"/>
-    <BdePage class="h-screen w-full bg-[#FFA07A] snap-center"/>
-    <Dorobo class="h-screen w-full bg-[#2F2718] snap-center"/>
-    <ContactPage class="h-screen w-full"/>
+  <PageIndicateur
+    class="fixed right-0 inset-y-0 z-30"
+    :projects="projects"
+    :selected-index="selectedIndex"
+    :scroll-to="scrollto"
+    v-if="isXLScreen"
+  />
+  <div
+    class="bg-cyan-50 w-full flex flex-col justify-center items-center overflow-auto no-scrollbar snap-both snap-mandatory"
+    ref="scrollContainer"
+  >
+    <LandingPage class="h-screen w-full" :scrollto="scrollto" :show="showable(0).value"/>
+    <MowgLille class="h-screen w-full bg-[#FFE860] snap-center pr-4" :show="showable(1).value"/>
+    <HomeePage class="h-screen w-full bg-[#674B41] snap-center pr-4" :show="showable(2).value"/>
+    <BdePage class="h-screen w-full bg-[#FFA07A] snap-center pr-4" :show="showable(3).value"/>
+    <Dorobo class="h-screen w-full bg-[#002147] snap-center pr-4" :show="showable(4).value"/>
+    <!-- <ContactPage class="h-screen w-full" :show="showable(5).value"/> -->
   </div>
   salut
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
