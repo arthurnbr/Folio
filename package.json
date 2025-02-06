@@ -15,6 +15,7 @@
     "@tresjs/post-processing": "^1.0.0",
     "@vueuse/core": "^12.3.0",
     "mdi-vue": "^3.0.13",
+    "pinia": "^2.3.1",
     "three": "^0.172.0",
     "vue": "^3.5.13",
     "vue-scroll-snap": "^0.1.11"

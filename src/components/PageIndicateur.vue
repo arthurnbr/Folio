@@ -41,7 +41,7 @@ const isHovered = ref(false)
       @click="scrollTo(index)"
     >
         <mdicon :name="project.icon" class="h-[24px] w-[24px]"/> 
-        <p class="font-bold">{{project.title}}</p>
+        <p class="font-bold truncate">{{project.title}}</p>
       </div>
     </div>
   </div>

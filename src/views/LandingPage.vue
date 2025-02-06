@@ -7,7 +7,7 @@ import { Suspense } from 'vue';
 import { BlendFunction } from 'postprocessing'
 import Test from '../models/Test.vue';
 
-
+defineProps<{scrollto : any}>();
 
 const gl = {
   clearColor: '#2c0e36',

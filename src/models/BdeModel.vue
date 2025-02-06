@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { useGLTF } from '@tresjs/cientos'
+import {useAssetStore} from "../Store/store.ts";
+import {storeToRefs} from "pinia";
 
-
-const { scene, nodes, animations, materials } = await useGLTF('/models/bde.glb')
-
+const assetStore = useAssetStore();
+const { bde } = storeToRefs(assetStore); // Toujours réactif
 </script>
 
 <template>
-    <TresMesh>
-        <primitive :object="scene"/>
+    <TresMesh v-if="bde">
+        <primitive :object="bde"/>
     </TresMesh>
 </template>
