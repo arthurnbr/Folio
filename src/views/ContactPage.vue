@@ -3,8 +3,7 @@ import { TresCanvas } from "@tresjs/core";
 import { MouseParallax, Levioso } from "@tresjs/cientos";
 import { BasicShadowMap, SRGBColorSpace, NoToneMapping } from "three";
 import { Bloom, EffectComposer, Noise } from "@tresjs/post-processing/pmndrs";
-import Test from "../models/Test.vue";
-import { Suspense } from "vue";
+import Test from "../models/LandingPageModel.vue";
 import { BlendFunction } from "postprocessing";
 
 

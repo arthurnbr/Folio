@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import {computed, onMounted, ref, watch, useTemplateRef} from "vue";
+import {computed, onMounted, ref, watch} from "vue";
 import LandingPage from "./views/LandingPage.vue";
 import PageIndicateur from "./components/PageIndicateur.vue";
 import MowgLille from "./views/MowgLille.vue";
 import HomeePage from "./views/HomeePage.vue";
 import BdePage from "./views/BdePage.vue";
-import Dorobo from "./views/Dorobo.vue";
+import Dorobo from "./views/DoroboPage.vue";
 import { useMediaQuery, useWindowScroll } from "@vueuse/core";
 import { useAssetStore } from './Store/store.ts';
-import { useScrollLock } from '@vueuse/core'
 import LoadingScreen from "./views/LoadingScreen.vue";
 import PhoneScreen from "./views/PhoneScreen.vue";
 
@@ -19,7 +18,7 @@ onMounted(() => {
 });
 
 function isMobile(): boolean {
-  // @ts-ignore
+  // @ts-expect-error userAgent
   const userAgent = navigator.userAgent || navigator["vendor"] || window["opera"] || "";
   return /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase()) || window.innerWidth < 768;
 }
@@ -45,10 +44,6 @@ watch(isScrolling, () => {
   if (isScrolling.value) return;
   scrollto(selectedIndex.value);
 });
-
-function showable(index: number) {
-  return computed(() => selectedIndex.value === index || selectedIndex.value === index - 1 || selectedIndex.value === index + 1);
-}
 
 function scrollto(index: number) {
   y.value = index * window.innerHeight;

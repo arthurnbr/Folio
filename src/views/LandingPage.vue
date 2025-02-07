@@ -3,14 +3,13 @@ import {TresCanvas} from '@tresjs/core';
 import {MouseParallax, Levioso} from '@tresjs/cientos';
 import {BasicShadowMap, SRGBColorSpace, NoToneMapping} from 'three'
 import {Bloom, EffectComposer, Noise} from '@tresjs/post-processing/pmndrs'
-import {Suspense} from 'vue';
 import {useAssetStore} from '../Store/store.ts';
 import {BlendFunction} from 'postprocessing'
-import Test from '../models/Test.vue';
+import Test from '../models/LandingPageModel.vue';
 import {useAnimate} from "@vueuse/core";
 import {ref} from "vue";
 
-defineProps<{ scrollto: any }>();
+defineProps<{ scrollto: (index: number) => void}>();
 const assetStore = useAssetStore();
 
 const gl = {

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { TresCanvas } from '@tresjs/core';
 import { BasicShadowMap, SRGBColorSpace, NoToneMapping } from 'three'
-import { MouseParallax, Levioso } from '@tresjs/cientos';
+import { Levioso } from '@tresjs/cientos';
 import BdeModel from '../models/BdeModel.vue';
 
 const gl = {

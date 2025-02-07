@@ -29,7 +29,7 @@ useAnimate(
 
 <template>
   <div class="flex flex-col justify-center items-center h-svh gap-8 opacity-80">
-    <img src="/icon.svg" class="h-1/4 w-1/4"></img>
+    <img src="/icon.svg" class="h-1/4 w-1/4"/>
     <h3 class="text-3xl" ref="el">Chargement des resources</h3>
   </div>
 </template>

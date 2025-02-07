@@ -2,7 +2,7 @@
 import { TresCanvas } from '@tresjs/core';
 import { BasicShadowMap, SRGBColorSpace, NoToneMapping } from 'three'
 import { Levioso } from '@tresjs/cientos';
-import Dorobo from '../models/Dorobo.vue';
+import Dorobo from '../models/CpModel.vue';
 
 
 const gl = {

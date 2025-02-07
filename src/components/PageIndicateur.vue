@@ -6,7 +6,7 @@ interface Project {
   icon: string;
 }
 
-const {projects, selectedIndex, scrollTo} = defineProps<{ projects: Project[], selectedIndex: number, scrollTo: Function}>();
+const {projects, selectedIndex, scrollTo} = defineProps<{ projects: Project[], selectedIndex: number, scrollTo: (index: number) => void}>();
 
 const isHovered = ref(false)
 
