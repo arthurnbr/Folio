@@ -65,7 +65,7 @@ const gl = {
         </div>
       </div>
     </div>
-    <div class="h-full w-1/2">
+    <div class="xl:h-full h-2/3 w-1/2">
       <TresCanvas v-bind="gl">
         <Suspense>
           <Levioso>

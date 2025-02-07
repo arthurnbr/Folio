@@ -51,7 +51,7 @@ const gl = {
       </p>
       <div class="w-20 h-1 bg-[#F1DABF] opacity-80"></div>
     </div>
-    <div class="h-full w-1/2">
+    <div class="xl:h-full h-2/3 w-1/2">
       <TresCanvas v-bind="gl">
         <Suspense>
           <Levioso>

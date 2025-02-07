@@ -16,7 +16,7 @@ const gl = {
 
 <template>
   <div class="h-screen w-full flex justify-center items-center">
-    <div class="h-full w-1/2">
+    <div class="xl:h-full h-2/3 w-1/2">
       <TresCanvas v-bind="gl">
         <Suspense>
           <Levioso>
