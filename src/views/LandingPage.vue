@@ -4,10 +4,14 @@ import { MouseParallax, Levioso } from '@tresjs/cientos';
 import { BasicShadowMap, SRGBColorSpace, NoToneMapping } from 'three'
 import { Bloom, EffectComposer, Noise } from '@tresjs/post-processing/pmndrs'
 import { Suspense } from 'vue';
+import { useAssetStore } from '../Store/store.ts';
 import { BlendFunction } from 'postprocessing'
 import Test from '../models/Test.vue';
+import {useAnimate} from "@vueuse/core";
+import {ref} from "vue";
 
 defineProps<{scrollto : any}>();
+const assetStore = useAssetStore();
 
 const gl = {
   clearColor: '#2c0e36',
@@ -18,12 +22,37 @@ const gl = {
   toneMapping: NoToneMapping,
 }
 
+const iconRef = ref();
+
+useAnimate(
+    iconRef,
+    [
+      {
+        opacity: 0.5,
+        transform: "translateY(0px)"
+      },
+      {
+        opacity: 1,
+        transform: "translateY(10px)"
+      },
+      {
+        opacity: 0.5,
+        transform: "translateY(0px)"
+      }
+    ],
+    {
+      duration: 1500,
+      easing: "ease-in-out",
+      iterations: Infinity
+    }
+);
 </script>
 
 <template>
-<div>
-  <div class="absolute top-0 left-0 w-full h-full z-40 flex flex-col justify-center items-center p-8" >
-    <div class="xl:w-[50%] flex flex-col bg-black bg-opacity-40 backdrop-blur-md gap-5 transition-all duration-300 overflow-hidden rounded-3xl shadow-2xl p-4">
+<div class="relative">
+  <div class="absolute top-0 left-0 w-full h-full z-10 flex flex-col justify-center items-center p-8" >
+    <Transition name="slide-fade" mode="out-in" >
+    <div class="xl:w-[50%] flex flex-col bg-black bg-opacity-40 backdrop-blur-md gap-5 transition-all duration-300 overflow-hidden rounded-3xl shadow-2xl p-4" v-if="!assetStore.isLoading">
       <div class="inline-flex gap-4">
         <div class="w-7 h-7 bg-[#68cfcf] rounded-full shadow-[2px_2px_4px_0px_rgba(0,0,0,0.25)]"></div>
         <div class="w-7 h-7 bg-[#a371e0] rounded-full shadow-[2px_2px_4px_0px_rgba(0,0,0,0.25)]"></div>
@@ -44,6 +73,15 @@ const gl = {
         </div>
       </div>
     </div>
+    </Transition>
+    <Transition name="slide-fade" mode="out-in">
+      <div class="w-full z-10 flex justify-center items-center p-8 h-32" v-if="!assetStore.isLoading">
+        <mdicon name="chevron-double-down" height="48" width="48" ref="iconRef"/>
+      </div>
+    </Transition>
+  </div>
+  <div class="absolute bottom-0 left-0 w-full z-10 flex justify-center items-center p-8">
+    <p>Salut</p>
   </div>
   <TresCanvas v-bind="gl">
     <TresPerspectiveCamera
@@ -81,3 +119,19 @@ const gl = {
   </TresCanvas>
 </div>
 </template>
+
+<style scoped>
+.slide-fade-enter-active {
+  transition: all 0.5s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateY(20px);
+  opacity: 0;
+}
+</style>

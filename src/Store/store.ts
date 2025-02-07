@@ -4,7 +4,7 @@ import { useGLTF } from '@tresjs/cientos';
 import type { Scene } from 'three'; // Typage correct pour la scène Three.js
 
 export const useAssetStore = defineStore('assets', () => {
-    const test = shallowRef<Scene | null>(null); // ✅ Typage explicite
+const test = shallowRef<Scene | null>(null); // ✅ Typage explicite
     const CP = shallowRef<Scene | null>(null); // ✅ Typage explicite
     const homee = shallowRef<Scene | null>(null); // ✅ Typage explicite
     const mowglille = shallowRef<Scene | null>(null); // ✅ Typage explicite
