@@ -9,16 +9,17 @@ export const useAssetStore = defineStore('assets', () => {
     const homee = shallowRef<Scene | null>(null);
     const mowglille = shallowRef<Scene | null>(null);
     const bde = shallowRef<Scene | null>(null);
+    const tasks =
+        [
+            useGLTF('models/test.glb'),
+            useGLTF('models/CP.glb'),
+            useGLTF('models/homee.glb'),
+            useGLTF('models/mowglille.glb', {draco: true}),
+            useGLTF('models/bde.glb')
+        ];
 
     async function loadModel() {
-        const [landingpageModel, CPModel, homeeModel, mowglilleModel, bdeModel] = await Promise.all(
-            [
-                useGLTF('models/test.glb'),
-                useGLTF('models/CP.glb'),
-                useGLTF('models/homee.glb'),
-                useGLTF('models/mowglille.glb', {draco: true}),
-                useGLTF('models/bde.glb')
-                ]);
+        const [landingpageModel, CPModel, homeeModel, mowglilleModel, bdeModel] = await Promise.all(tasks);
 
         landingpage.value = landingpageModel.scene; // Affectation correcte
         CP.value = CPModel.scene

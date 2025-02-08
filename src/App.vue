@@ -5,7 +5,7 @@ import PageIndicateur from "./components/PageIndicateur.vue";
 import MowgLille from "./views/MowgLille.vue";
 import HomeePage from "./views/HomeePage.vue";
 import BdePage from "./views/BdePage.vue";
-import Dorobo from "./views/DoroboPage.vue";
+import CpPage from "./views/CpPage.vue";
 import { useMediaQuery, useWindowScroll } from "@vueuse/core";
 import { useAssetStore } from './Store/store.ts';
 import LoadingScreen from "./views/LoadingScreen.vue";
@@ -70,7 +70,7 @@ function scrollto(index: number) {
       <MowgLille class="h-screen w-full bg-[#FFE860] snap-center pr-4"/>
       <HomeePage class="h-screen w-full bg-[#674B41] snap-center pr-4"/>
       <BdePage class="h-screen w-full bg-[#FFA07A] snap-center pr-4"/>
-      <Dorobo class="h-screen w-full bg-[#002147] snap-center pr-4"/>
+      <CpPage class="h-screen w-full bg-[#002147] snap-center pr-4"/>
       <!-- <ContactPage class="h-screen w-full" :show="showable(5).value"/> -->
     </div>
   </div>

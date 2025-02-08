@@ -62,10 +62,9 @@ useAnimate(
             <img src="/assets/pp.png" class="w-40 h-40"/>
             <div class="flex flex-col justify-center items-start gap-2">
               <h1 class="text-5xl">Arthur Nobrega</h1>
-              <p class="text-white text-base font-semibold">Ingénieur en formation, passionné d'informatique, mon
-                objectif est d'en apprendre plus sur ces métiers en entreprise, en particulier dans le domaine des
-                systèmes embarqués ou du développement WEB/Mobile. Pour cette raison, je recherche un contrat de
-                professionnalisation dans ces domaines pour la période de septembre 2025 à juin 2026.</p>
+              <p class="text-white text-base font-semibold">
+                Ingénieur en formation à Centrale Lille, j'ai développé, au cours de mon cursus et à travers mes projets personnels (<a href="https://folio.nobrega.fr" target="_blank">disponibles ici</a>), de solides compétences en informatique. L'année prochaine, je souhaite approfondir mes connaissances en réalisant un contrat de professionnalisation dans ce domaine, pour la période de septembre 2025 à juin 2026.
+              </p>
             </div>
           </div>
           <div class="flex gap-4">
@@ -86,8 +85,10 @@ useAnimate(
         </div>
       </Transition>
       <Transition name="fade" mode="out-in">
-        <div class="w-full z-10 flex justify-center items-center p-8 h-32" v-if="!assetStore.isLoading">
-          <mdicon name="chevron-double-down" height="48" width="48" ref="iconRef"/>
+        <div class="w-full z-10 flex justify-center items-center p-8 h-32" v-if="!assetStore.isLoading" >
+          <button @click="scrollto(1)">
+            <mdicon name="chevron-double-down" height="48" width="48" ref="iconRef"/>
+          </button>
         </div>
       </Transition>
     </div>
@@ -99,14 +100,15 @@ useAnimate(
             <img
                 class="inline h-5 w-5 mr-1 mt-[2px]"
                 src="https://uxwing.com/wp-content/themes/uxwing/download/communication-chat-call/email-envelope-line-white-icon.svg"
-            />arthur.nbga@gmail.com
+            />
+            <a href="mailto:arthur.nbga@gmail.com" target="_blank">arthur.nbga@gmail.com</a>
           </p>
           <p>
             <img
                 class="inline h-5 w-5 mr-1 mb-1"
                 src="https://uxwing.com/wp-content/themes/uxwing/download/communication-chat-call/phone-ringing-white-icon.svg"
             />
-            +33782786247
+            <a href="tel:0782786247" target="_blank">+33782786247</a>
           </p>
           <p>
             <img
