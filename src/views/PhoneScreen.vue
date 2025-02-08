@@ -30,6 +30,6 @@ useAnimate(
 <template>
   <div class="flex flex-col justify-center items-center h-svh gap-4 opacity-80">
     <img src="/icon.svg" class="w-1/4"/>
-    <h3 class="text-2xl" ref="el">Pas sur tel bb</h3>
+    <h3 class="text-2xl" ref="el">Mon Portefolio est disponible uniquement sur Desktop</h3>
   </div>
 </template>
