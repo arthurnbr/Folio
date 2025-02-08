@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import {useAnimate} from "@vueuse/core";
 import {useTemplateRef} from "vue";
-import {useAssetStore} from "../Store/store.ts";
-
-const assetStore = useAssetStore();
 
 const el = useTemplateRef("el");
 useAnimate(
@@ -34,7 +31,6 @@ useAnimate(
   <div class="flex flex-col justify-center items-center h-svh gap-8 opacity-80">
     <img src="/icon.svg" class="h-1/4 w-1/4"/>
     <h3 class="text-3xl" ref="el">Chargement des resources</h3>
-    <h3 class="text-3xl" ref="el">{{assetStore.progress}}</h3>
   </div>
 
   <div class="absolute bottom-0 left-0 w-full z-10 flex justify-center items-center p-8 gap-2">
